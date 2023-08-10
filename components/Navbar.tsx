@@ -11,7 +11,7 @@ export default function Navbar() {
   const [isActive, setIsActive] = useState(false);
 
   return (
-    <header className="flex justify-between items-center pt-[40px] px-[24px] pb-[23px] md:pt-[48px] md:px-[48px] md:pb-[78px] max-w-[1204px] mx-auto relative">
+    <header className="flex justify-between items-center pt-[40px] pb-[23px] md:pt-[48px] md:pb-[78px] max-w-[1204px] mx-auto relative">
       <article className="flex items-center gap-[45px]">
         <Image src={"/logo.svg"} alt="logo" width={120} height={32.6} />
         <nav className="hidden md:block">
@@ -33,17 +33,14 @@ export default function Navbar() {
         onClick={() => setIsActive(!isActive)}
       >
         <m.span
-          initial={{ y: 0, rotate: 0 }}
           animate={{ y: isActive ? 9 : 0, rotate: isActive ? -45 : 0 }}
           className={`w-[24px] h-[3px] bg-gray-violet`}
         />
         <m.span
-          initial={{ rotate: 0 }}
           animate={{ rotate: isActive ? 45 : 0 }}
           className={`w-[24px] h-[3px] bg-gray-violet`}
         />
         <m.span
-          initial={{ y: 0, rotate: 0, opacity: 1 }}
           animate={{
             y: isActive ? -9 : 0,
             rotate: isActive ? -45 : 0,
@@ -54,8 +51,8 @@ export default function Navbar() {
       </div>
 
       <article className="md:flex hidden gap-x-[37px]">
-        <Button variant={"minimal"}>Login</Button>
-        <Button variant={"detailed"}>Sign Up</Button>
+        <Button rounded="full" delay={0} variant={"minimal"} text="Login" />
+        <Button rounded="full" delay={0} variant={"detailed"} text="Sign up" />
       </article>
 
       <AnimatePresence>
@@ -64,7 +61,7 @@ export default function Navbar() {
             initial={{ y: "100%", scaleY: 0, originY: 0 }}
             animate={{ scaleY: 1 }}
             exit={{ scaleY: 0 }}
-            className="absolute md:hidden bottom-0 left-[24px] right-[24px] bg-violet translate-y-[100%] rounded-[10px] px-[24px] py-[40px]"
+            className="absolute md:hidden bottom-0 left-0 right-0 bg-violet translate-y-[100%] rounded-[10px] px-[24px] py-[40px]"
           >
             <m.section
               initial={{ opacity: 0 }}
@@ -93,9 +90,19 @@ export default function Navbar() {
                 transition={{ delay: 0.7 }}
                 className="w-full h-[1px] bg-[#9E9AA8]/25 border-none my-[31px]"
               />
-              <article className="flex flex-col">
-                <Button variant={"minimal"}>Login</Button>
-                <Button variant={"detailed"}>Sign Up</Button>
+              <article className="flex flex-col gap-[24px]">
+                <Button
+                  rounded="full"
+                  delay={0.85}
+                  variant={"minimal"}
+                  text="Login"
+                />
+                <Button
+                  rounded="full"
+                  delay={1}
+                  variant={"detailed"}
+                  text="Sign Up"
+                />
               </article>
             </m.section>
           </m.article>
