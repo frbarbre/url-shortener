@@ -56,7 +56,7 @@ export default function Search() {
 
   function handleReset() {
     setLinksArray([]);
-    setClipboard("")
+    setClipboard("");
   }
 
   function removeLink(id: string) {
@@ -64,7 +64,7 @@ export default function Search() {
   }
 
   return (
-    <div>
+    <section>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
@@ -89,7 +89,6 @@ export default function Search() {
           {linksArray.length !== 0 && <p onClick={handleReset}>Reset</p>}
         </>
       )}
-      <p>Clipboard: {clipboard}</p>
-    </div>
+    </section>
   );
 }
