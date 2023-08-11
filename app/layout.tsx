@@ -19,7 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${poppins.className} px-[24px] md:px-[48px]`}
+        className={`${poppins.className} overflow-x-hidden`}
       >
         <Navbar />
         {children}

@@ -7,8 +7,10 @@ export default function Home() {
   return (
     <main>
       <Hero />
-      <Search />
-      <Statistics />
+      <div className="bg-[#F2F2F2] px-[24px] md:px-[48px]">
+        <Search />
+        <Statistics />
+      </div>
       <CTA />
     </main>
   );

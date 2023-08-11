@@ -14,9 +14,22 @@ const config: Config = {
         "gray-violet": "hsl(257, 7%, 63%)",
         violet: "hsl(257, 27%, 26%)",
         "dark-blue": "hsl(255, 11%, 22%)",
-        "dark-voilet": "hsl(260, 8%, 14%)",
+        "dark-violet": "hsl(260, 8%, 14%)",
         red: "hsl(0, 87%, 67%)",
       },
+      backgroundImage: {
+        "short-mobile": "url('/bg-shorten-mobile.svg')",
+        "short-desktop": "url('/bg-shorten-desktop.svg')",
+        "boost-mobile": "url('/bg-boost-mobile.svg')",
+        "boost-desktop": "url('/bg-boost-desktop.svg')",
+      },
+      scale: {
+        hr: "calc(100% + 48px)",
+      },
+    },
+    screens: {
+      md: "768px",
+      lg: "1440px",
     },
   },
   plugins: [],
