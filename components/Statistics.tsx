@@ -11,7 +11,7 @@ export default function Statistics() {
       <m.h2
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.5 }}
+        transition={{ delay: 0 }}
         className="text-dark-violet font-bold text-[28px] tracking-[-0.7px] leading-[48px] md:text-[40px] md:tracking-[-1px] text-center pb-[16px] md:pb-[18px]"
       >
         Advanced Statistics
@@ -19,7 +19,7 @@ export default function Statistics() {
       <m.h3
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.55 }}
+        transition={{ delay: 0 }}
         className="font-medium text-gray-violet max-w-[540px] text-center mx-auto md:text-[18px] leading-[28px] tracking-[0.11px] md:leading-[32px] md:tracking-[0.12px] pb-[92px] md:pb-[100px]"
       >
         Track how your links are performing across the web with our advanced
@@ -39,7 +39,7 @@ export default function Statistics() {
           <m.div
             initial={{ scaleX: 0, originX: 0 }}
             animate={{ scaleX: 1 }}
-            transition={{ delay: 0.6, duration: 0.65 }}
+            transition={{ delay: 0, duration: 0.65 }}
             className="w-[8px] h-full md:h-[8px] md:w-full bg-cyan absolute left-[50%] translate-x-[-50%] md:left-0 md:translate-x-0 md:top-[50%]"
           />
         </>
