@@ -7,7 +7,7 @@ import { motion as m } from "framer-motion";
 
 export default function Statistics() {
   return (
-    <section className="py-[80px] md:pb-[208px] md:pt-[96px] max-w-[1110px] mx-auto">
+    <section className="py-[80px] md:pb-[208px] md:pt-[72px] max-w-[1110px] mx-auto">
       <m.h2
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
