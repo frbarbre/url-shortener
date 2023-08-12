@@ -9,7 +9,7 @@ export default function Hero() {
     <m.section
       initial={{ y: -10, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      transition={{ delay: 0.5 }}
+      transition={{ delay: 0 }}
       className="flex flex-col md:flex-row-reverse justify-between max-w-[1206px] mx-auto gap-[37px] md:items-center pb-[68px] px-[24px] md:px-[48px]"
     >
       <div className="relative md:w-full aspect-[511/337] max-w-[733px] lg:mr-[-290px] md:mr-[-160px] mr-[-160px]">

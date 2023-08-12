@@ -15,7 +15,7 @@ export default function StatCard({ image, text, title, index }: Props) {
     <m.article
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ delay: index * 0.15 + 0.7}}
+      transition={{ delay: 0}}
       className={`bg-white px-[32px] pb-[41px] rounded-[5px] md:max-w-[350px] relative z-10 ${
         index === 1
           ? "md:translate-y-[44px]"

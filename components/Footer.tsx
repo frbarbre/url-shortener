@@ -12,7 +12,7 @@ export default function Footer() {
     <m.footer
       initial={{ scaleX: 0, originX: 0 }}
       animate={{ scaleX: 1 }}
-      transition={{ delay: 1 }}
+      transition={{ delay: 0 }}
       className="px-[24px] md:px-[48px] bg-dark-violet py-[54px] md:py-[71px]"
     >
       <m.section initial={{opacity: 0}} animate={{opacity: 1}} transition={{delay: 1.2}} className="flex flex-col lg:flex-row items-center justify-between max-w-[1110px] mx-auto lg:items-start gap-[48px]">

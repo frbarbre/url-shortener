@@ -80,7 +80,7 @@ export default function Navbar() {
                       initial={{ y: -10, opacity: 0 }}
                       animate={{ y: 0, opacity: 1 }}
                       exit={{ opacity: 0 }}
-                      transition={{ delay: index * 0.15 + 0.2 }}
+                      transition={{ delay: index * 0 }}
                       key={nanoid()}
                     >
                       {link.title}
@@ -92,7 +92,7 @@ export default function Navbar() {
                 initial={{ scaleX: 0, opacity: 0 }}
                 animate={{ scaleX: 1, opacity: 1 }}
                 exit={{ scaleX: 0, opacity: 0 }}
-                transition={{ delay: 0.7 }}
+                transition={{ delay: 0 }}
                 className="w-full h-[1px] bg-[#9E9AA8]/25 border-none my-[31px]"
               />
               <article className="flex flex-col gap-[24px]">
