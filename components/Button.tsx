@@ -15,6 +15,7 @@ interface Props {
   bg?: string;
   bgHex?: string;
   bgHover?: string;
+  isMobile?: boolean;
 }
 
 export default function Button({
@@ -29,6 +30,7 @@ export default function Button({
   bg,
   bgHex,
   bgHover,
+  isMobile
 }: Props) {
   const [isHovered, setIsHovered] = useState(false);
 
@@ -77,9 +79,9 @@ export default function Button({
               ? bgHex || "#2BD0D0"
               : "",
           color:
-            variant === "minimal" && isHovered
+            variant === "minimal" && isHovered && !isMobile
               ? "#34313D"
-              : variant === "minimal" && !isHovered
+              : variant === "minimal" && !isHovered && !isMobile
               ? "#9E9AA8"
               : "",
         }}

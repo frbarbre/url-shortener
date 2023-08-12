@@ -101,6 +101,7 @@ export default function Navbar() {
                   delay={0.85}
                   variant={"minimal"}
                   text="Login"
+                  isMobile={true}
                 />
                 <Button
                   rounded="full"
