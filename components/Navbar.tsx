@@ -6,6 +6,7 @@ import Button from "./Button";
 import { motion as m, AnimatePresence } from "framer-motion";
 import { nanoid } from "nanoid";
 import { useState } from "react";
+import NavLink from "./NavLink";
 
 export default function Navbar() {
   const [isActive, setIsActive] = useState(false);
@@ -17,17 +18,9 @@ export default function Navbar() {
           <Image src={"/logo.svg"} alt="logo" width={120} height={32.6} />
         </m.div>
         <nav className="hidden md:block">
-          <ul className="flex gap-[29px] text-[15px] font-bold text-gray-violet">
+          <ul className="flex gap-[29px] text-[15px] font-bold">
             {navLinks.map((link, index) => (
-              <m.li
-                initial={{ y: -10, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: index * 0.15 + 0.2 }}
-                key={nanoid()}
-                className="cursor-pointer hover:text-dark-blue"
-              >
-                {link.title}
-              </m.li>
+              <NavLink index={index} title={link.title} key={nanoid()} />
             ))}
           </ul>
         </nav>

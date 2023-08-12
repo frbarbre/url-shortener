@@ -12,6 +12,9 @@ interface Props {
   fontSize?: string;
   isCopyButton?: boolean;
   type?: "submit" | "button";
+  bg?: string;
+  bgHex?: string;
+  bgHover?: string;
 }
 
 export default function Button({
@@ -23,6 +26,9 @@ export default function Button({
   fontSize,
   isCopyButton,
   type,
+  bg,
+  bgHex,
+  bgHover,
 }: Props) {
   const [isHovered, setIsHovered] = useState(false);
 
@@ -42,7 +48,7 @@ export default function Button({
         fontSize || "text-[18px] md:text-[15px]"
       } text-white font-bold ${
         variant === "detailed"
-          ? `${text === "Copied!" ? "bg-violet" : "bg-cyan"} ${
+          ? `${text === "Copied!" ? "bg-violet" : bg || "bg-cyan"} ${
               size || "h-[48px] md:h-[40px] w-full md:w-[105px]"
             } ${
               rounded === "full"
@@ -63,12 +69,18 @@ export default function Button({
             variant === "detailed" &&
             text !== "Copied!" &&
             !isCopyButton
-              ? "#9AE3E3"
+              ? bgHover || "#9AE3E3"
               : !isHovered &&
                 variant === "detailed" &&
                 text !== "Copied!" &&
                 !isCopyButton
-              ? "#2BD0D0"
+              ? bgHex || "#2BD0D0"
+              : "",
+          color:
+            variant === "minimal" && isHovered
+              ? "#34313D"
+              : variant === "minimal" && !isHovered
+              ? "#9E9AA8"
               : "",
         }}
         className={`w-full h-full flex items-center justify-center rounded-[inherit] ${

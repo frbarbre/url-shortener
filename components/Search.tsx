@@ -5,6 +5,8 @@ import { useEffect, useState } from "react";
 import LinkCard from "./LinkCard";
 import { nanoid } from "nanoid";
 import Button from "./Button";
+import { motion as m } from "framer-motion";
+import ErrorMessage from "./ErrorMessage";
 
 export default function Search() {
   let storageString;
@@ -51,12 +53,12 @@ export default function Search() {
         ]);
         setInputValue("");
       } catch (error: any) {
-        console.log(`Not valid url: ${inputValue}`);
         setError(true);
+        setErrorMessage(`"${inputValue}" is not a valid url`);
       }
     } else {
-      console.log("cant be empty");
       setError(true);
+      setErrorMessage("Please add a link");
     }
   }
 
@@ -71,19 +73,25 @@ export default function Search() {
 
   return (
     <section className="relative">
-      <form
+      <m.form
+        initial={{ y: -10, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ delay: 0.7 }}
         onSubmit={handleSubmit}
         className="rounded-[10px] bg-violet p-[24px] md:py-[52px] md:px-[64px] bg-short-mobile relative md:bg-short-desktop bg-contain bg-right-top z-10 max-w-[1110px] mx-auto md:bg-cover bg-no-repeat flex flex-col md:flex-row gap-x-[24px] gap-y-[16px]"
       >
-        <input
-          type="text"
-          value={inputValue}
-          placeholder="Shorten a link here..."
-          onChange={(e) => setInputValue(e.target.value)}
-          className={`font-medium border-[3px] box-border leading-[36px] tracking-[0.12px] md:tracking-[0.15px] md:text-[20px] px-[16px] outline-none py-[3px] md:px-[32px] md:py-[11px] rounded-[5px] md:rounded-[10px] w-full ${
-            error ? "border-red" : "border-white"
-          }`}
-        />
+        <div className="w-full">
+          <input
+            type="text"
+            value={inputValue}
+            placeholder="Shorten a link here..."
+            onChange={(e) => setInputValue(e.target.value)}
+            className={`font-medium border-[3px] box-border leading-[36px] tracking-[0.12px] md:tracking-[0.15px] md:text-[20px] px-[16px] outline-none py-[3px] md:px-[32px] md:py-[11px] rounded-[5px] md:rounded-[10px] w-full ${
+              error ? "border-red placeholder:text-red/50" : "border-white"
+            }`}
+          />
+          {error && <ErrorMessage>{errorMessage}</ErrorMessage>}
+        </div>
         <Button
           text="Shorten it!"
           delay={0}
@@ -93,9 +101,14 @@ export default function Search() {
           size="md:max-w-[188px] w-full h-[48px] md:h-[64px]"
           type="submit"
         />
-      </form>
+      </m.form>
       {isClient && (
-        <article className="flex flex-col gap-[24px] py-[24px] w-full md:gap-[16px]">
+        <m.article
+          initial={{ y: -10, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.9 }}
+          className="flex flex-col gap-[24px] py-[24px] w-full md:gap-[16px]"
+        >
           {linksArray.map((link) => (
             <LinkCard
               shortLink={link.shortLink}
@@ -106,8 +119,22 @@ export default function Search() {
               key={nanoid()}
             />
           ))}
-          {linksArray.length !== 0 && <p onClick={handleReset}>Reset</p>}
-        </article>
+          {linksArray.length !== 0 && (
+            <div onClick={handleReset} className="mx-auto">
+              <Button
+                rounded="full"
+                delay={0.9}
+                text="Reset"
+                variant="detailed"
+                size="h-[40px] w-[105px]"
+                fontSize="text-[14px] md:text-[16px]"
+                bg="bg-red"
+                bgHex="#F46363"
+                bgHover="#F47C7C"
+              />
+            </div>
+          )}
+        </m.article>
       )}
       <div className="absolute top-0 -left-[24px] -right-[24px] md:-right-[48px] md:-left-[48px] h-[80px] md:h-[84px] bg-white" />
     </section>

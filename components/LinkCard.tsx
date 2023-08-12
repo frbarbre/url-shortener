@@ -1,7 +1,9 @@
 "use client";
 
+import Image from "next/image";
 import Button from "./Button";
 import { motion as m } from "framer-motion";
+
 interface Props {
   shortLink: string;
   originalLink: string;
@@ -24,14 +26,25 @@ export default function LinkCard({
 
   return (
     <div className="bg-white pb-[16px] pt-[6px] md:py-[16px] md:pl-[32px] md:pr-[24px] flex justify-between md:items-center flex-col md:flex-row max-w-[1110px] mx-auto w-full rounded-[5px]">
-      <h2 className="px-[16px] md:px-[0px] text-[16px] leading-[36px] tracking-[0.12px] font-medium text-dark-violet">
-        {originalLink}
-      </h2>
+      <div className="flex justify-between w-full px-[16px] md:px-[0px]">
+        <h2 className="text-[16px] leading-[36px] tracking-[0.12px] font-medium text-dark-violet">
+          {originalLink}
+        </h2>
+        <Image
+          src={"/icon-close.svg"}
+          alt="close-icon"
+          width={12}
+          height={12}
+          onClick={() => removeLink(originalLink)}
+          className="cursor-pointer md:hidden"
+        />
+      </div>
       <div className="md:hidden border-b-[1px] border-b-gray w-full pt-[6px] mb-[6px]" />
       <article className="flex md:items-center flex-col w-full justify-end md:flex-row gap-x-[24px] px-[16px] md:px-[0px] gapy-[8px]">
-        <h2 className="text-[16px] leading-[36px] tracking-[0.12px] font-medium text-cyan">
+        <a target="_blank" href={shortLink} className="text-[16px] leading-[36px] pb-[8px] md:pb-0 tracking-[0.12px] font-medium text-cyan hover:underline">
           {shortLink}
-        </h2>
+        </a>
+
         <div
           onClick={() => handleCopy(originalLink, shortLink)}
           className="w-full md:max-w-[103px]"
@@ -45,7 +58,15 @@ export default function LinkCard({
             size="w-full h-[40px] md:max-w-[103px]"
           />
         </div>
-        {/* <p onClick={() => removeLink(originalLink)}>Remove Link</p> */}
+
+        <Image
+          src={"/icon-close.svg"}
+          alt="close-icon"
+          width={12}
+          height={12}
+          onClick={() => removeLink(originalLink)}
+          className="cursor-pointer hidden md:block"
+        />
       </article>
     </div>
   );
