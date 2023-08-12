@@ -15,7 +15,7 @@ export default function NavLink({ title, index }: Props) {
     <m.li
       initial={{ y: -10, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      transition={{ delay: 0 }}
+      transition={{ delay: index * 0.15 + 0.2 }}
       className="cursor-pointer hover:text-dark-blue"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}

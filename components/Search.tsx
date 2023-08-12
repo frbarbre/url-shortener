@@ -76,7 +76,7 @@ export default function Search() {
       <m.form
         initial={{ y: -10, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ delay: 0 }}
+        transition={{ delay: 0.7 }}
         onSubmit={handleSubmit}
         className="rounded-[10px] bg-violet p-[24px] md:py-[52px] md:px-[64px] bg-short-mobile relative md:bg-short-desktop bg-contain bg-right-top z-10 max-w-[1110px] mx-auto md:bg-cover bg-no-repeat flex flex-col md:flex-row gap-x-[24px] gap-y-[16px]"
       >
@@ -106,7 +106,7 @@ export default function Search() {
         <m.article
           initial={{ y: -10, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0 }}
+          transition={{ delay: 0.9 }}
           className="flex flex-col gap-[24px] py-[24px] w-full md:gap-[16px]"
         >
           {linksArray.map((link) => (
